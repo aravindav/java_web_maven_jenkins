@@ -3,9 +3,10 @@ pipeline{
 
     agent any 
 
+ 
+
     stages {
 
-        
         stage('Gt Checkout'){
             steps {
                 script {
@@ -15,9 +16,18 @@ pipeline{
         }
 
         stage('Unit Test Maven'){
+
             steps{
                 script {
                      mvnTest()
+                }
+            }
+        }
+
+        stage('Integration Test maven'){
+            steps {
+                script {
+                    mvnIntegrationTest()
                 }
             }
         }
